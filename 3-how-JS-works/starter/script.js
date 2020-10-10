@@ -75,8 +75,31 @@ function first() {
 
 function third() {
   var d = "John";
-  console.log(a + b + c + d);
+  // Reference error is thrown because variables b and c are not within accessible scope.
+  //   console.log(a + b + c + d);
 }
 
 ///////////////////////////////////////
 // Lecture: The this keyword
+
+// The this keyword points to the literal object
+var person = {
+  name: "John",
+  birthdate: 1975,
+  calculateAge: function () {
+    return CURRENT_YEAR - this.birthdate;
+  },
+};
+
+console.log(`John: ${person.calculateAge()}`);
+
+// The this keyword gets its value only when the method is called , that's why we can use the same method from person in person2
+
+var person2 = {
+  name: "Gosia",
+  birthdate: 1969,
+};
+
+person2.calculateAge = person.calculateAge;
+
+console.log(`Gosia: ${person2.calculateAge()}`);
