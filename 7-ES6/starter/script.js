@@ -6,4 +6,4 @@ const boxes = [...document.querySelectorAll(".box")];
 
 boxes.forEach((box) => (box.style.backgroundColor = "dodgerblue"));
 
-boxes.filter((box) => !box.includes("blue")).forEach((box) => (box.textContent = "I changed to blue"));
+boxes.filter((box) => !box.className.includes("blue")).forEach((box) => (box.textContent = "I changed to blue"));
